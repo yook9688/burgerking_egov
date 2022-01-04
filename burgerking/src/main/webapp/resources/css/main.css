@@ -1,0 +1,70 @@
+        /* 콘텐츠 */
+        #content {clear: both; width: 100%; height: 100%; background-color: #f2ebe6;}
+        .con_wrap {width: 100%; height: 100%;}
+        .sec {width: 1440px; margin: 0 auto;}
+        .ban_sec {width: 1440px; height: 480px; overflow: hidden; margin: 0 auto; position: relative; margin-top: 144px;}
+        .ban {width: 800%; height: 480px;}
+        .ban a {display: block; width: 1440px; height: 480px; float: left;}
+        .ban a img {width: 1440px; height: 480px;}
+        .btn_box {width: 1440px; margin: auto; position: absolute; top: 216px; color: #fff;}
+        .leftbtn {margin-left: 15px; width: 30px; height: 44px; cursor: pointer;}
+        .rightbtn {float:right; margin-right: 15px; width: 30px; height: 44px; cursor: pointer; }
+        
+        /* 번호별 버튼 */
+        #num_box { width: 128px; height: 20px; left: 50%; margin-left: -64px; 
+         position: absolute; top: -1px; z-index: 40;	}
+        #num_box button { display: block; outline: 0; border: none; background:#fff;
+        border-radius: 6px; width: 8px; height: 8px; position: absolute; top: 450px; padding: 0; }
+        #num_box button.on { background: red;}
+        #num_box button#btn1 {	left: 4px;	}
+        #num_box button#btn2 {	left: 20px;	}
+        #num_box button#btn3 {	left: 36px;	}
+        #num_box button#btn4 {	left: 52px;	}
+        #num_box button#btn5 {	left: 68px;	}
+        #num_box button#btn6 {	left: 84px;	} 
+        #num_box button#btn7 {	left: 100px;	}
+        #num_box button#btn8 {	left: 116px;	}
+        
+        .sec2_wrap {width: 100%; height: 610px;}
+        .sec2_wrap iframe {border: 0;}
+        .sec3_wrap {width: 100%; height: 160px; background-color: #683a2f;}
+        .snslist {width: 1144px; margin: 0 auto; padding: 0;}
+        .snslist li {width: 33%; height: 100%; float: left; }
+        .sns_con {min-width: 180px; height: 94px; margin-left: 200px; margin-top: 55px; }
+        .sns_con a {color: #fff; font-size: 20px;}
+        .sns_con a p {margin-bottom: 10px;}
+        .sns_con a span {display:inline-block; height: 26px; padding: 0 9px 0 33px; margin-top: 5px; background-color: #fff; color: #000; background-position: 10px; border-radius: 4px; font-size: 0.75rem; line-height: 26px;}
+        .youtube {background: url(../img/main/youtube.png) no-repeat;}
+        .facebook {background: url(../img/main/like.png) no-repeat;}
+        .instagram {background: url(../img/main/follower.png) no-repeat;}
+        .logo_you {background: url(../img/main/ico_home_sns_youtube1.ff45a855.png) no-repeat 80px 40px;}
+        .logo_face {background: url(../img/main/facebook.png) no-repeat 80px 40px;}
+        .logo_insta {background: url(../img/main/ico_home_sns_insta1.5e20069c.png) no-repeat 80px 40px;}
+        
+        .sec4_wrap {width: 100%; height: 480px; position: relative;}
+        .app_direc {width: 50%; height: 100%; background: #c7a186 url(../img/main/bg_home_guide_app.d27d20bc.png) no-repeat;}
+        .app_direc a {display: inline-block; width: 100%; height: 100%;}
+        .dil_direc {width: 50%; height: 100%; background: #b08972 url(../img/main/bg_home_guide_delivery.47423aad.png) no-repeat; 
+        position: absolute; top: 0; left: 50%;}
+        .dil_direc a {display: inline-block; width: 100%; height: 100%;}
+        
+        .sec5_wrap {width: 100%; height: 600px; background: #fff;}
+        .sec5_wrap h2 {font-size: 3rem; text-align: center; padding-top: 100px; margin-top: 0; margin-bottom: 16px; line-height: 100%;}
+        .sec5_wrap > p {font-size: 1.5em; text-align: center;}
+        .searchshop_btn {width: 1144px; height: 50px; margin: 0 auto; margin-top: 50px;}
+        .searchshop_btn a {display: block; width: 120px; height: 50px; margin: 0 auto; background: url(../img/main/매장찾기버튼bg_btn01_s_red.e9d9c88c.png) no-repeat; background-size: auto;}
+        .searchshop_btn a p {font-size: 24px; color: #fff; line-height: 50px; text-align: center;}
+        .shop_catelist {width: 1144px; height: 180px; margin: 0 auto; margin-top: 70px;}
+        .shop_catelist li {float: left; width: 16.5%; height: 100%; border-right: solid 1px #ededed; }
+        .shop_catelist li:last-child {border: none;}
+        .shop_catelist li img {display: block; margin: 0 auto;}
+        .shop_catelist li span {display: inline-block; width: 100%; font-size: 18px; text-align: center;}
+        .shop_catelist li p {font-size: 18px; font-weight: bold; color: #e22219; text-align: center;}
+        
+        .sec6_wrap {width: 100%; height: 200px; background: url(../img/main/bg_home_cs.40b21d3f.png) no-repeat;}
+        .sec6_con {width: 1144px; height: 100%; margin: 0 auto; color: #fff; position: relative;}
+        .sec6_con h2 {font-size: 32px; margin-top: 0; padding-top: 60px;}
+        .sec6_con p {font-size: 20px;}
+        .sec6_con span {font-size: 60px; font-weight: bold; position: absolute; top: 60px; right: 0; background: url(../img/main/phone.png) no-repeat 0 50%; padding-left: 50px; white-space: nowrap;}
+        
+       

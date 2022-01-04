@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+		<typeAlias alias="boardVO" type="com.araise.burgerking.vo.BoardVO"/>
+		<typeAlias alias="memberVO" type="com.araise.burgerking.vo.MemberVO"/>
+		<typeAlias alias="orderVO" type="com.araise.burgerking.vo.OrderVO"/>
+		<typeAlias alias="productVO" type="com.araise.burgerking.vo.ProductVO"/>
+		<typeAlias alias="cartVO" type="com.araise.burgerking.vo.CartVO"/>
+		<typeAlias alias="searchCriteria" type="com.araise.burgerking.vo.SearchCriteria"/>
+    </typeAliases>
+</configuration>

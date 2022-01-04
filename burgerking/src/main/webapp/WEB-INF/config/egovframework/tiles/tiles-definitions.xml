@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    
+    <definition name="mainLayout" templateExpression="/WEB-INF/jsp/tiles/mainLayout.jsp">
+       <put-attribute name="header" value="/WEB-INF/jsp/tiles/header.jsp" />
+       <put-attribute name="sitemap" value="/WEB-INF/jsp/tiles/sitemap.jsp" />
+       <put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp"/>
+    </definition>
+    
+    <definition name="orderLayout" templateExpression="/WEB-INF/jsp/tiles/orderLayout">
+        <put-attribute name="orderHeader" value="/WEB-INF/jsp/tiles/orderHeader.jsp" />
+        <put-attribute name="sitemap" value="/WEB-INF/jsp/tiles/sitemap.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp" />
+    </definition>
+   	
+   	<definition name="*" extends="mainLayout">
+   	    <put-attribute name="body" value="/WEB-INF/jsp/views/{1}.jsp" />
+   	</definition>
+   	<definition name="*/*" extends="mainLayout">
+   	    <put-attribute name="body" value="/WEB-INF/jsp/views/{1}/{2}.jsp"/>
+   	</definition>
+   	
+   	<definition name="order/*" extends="orderLayout">
+   	    <put-attribute name="body" value="/WEB-INF/jsp/views/order/{1}.jsp" />
+   	</definition>
+    
+</tiles-definitions>
