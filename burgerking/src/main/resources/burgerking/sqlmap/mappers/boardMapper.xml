@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.araise.burgerking.mapper.BoardMapper">
+	<!-- 게시판 글 작성 -->
+	<insert id="write">
+		INSERT INTO BURGER_BOARD	(	BNO
+										,TITLE
+										,CONTENT
+										,WRITER 
+									)
+						VALUES		(	BOARDNO_SEQ.NEXTVAL
+										,#{title}
+										,#{content}
+										,#{writer}   	
+									)
+	</insert>
+	<!-- resultType: 쿼리를 실행하고 난 결과값을  BoardVO에 담으려고 씀 -->
+	<select id="list" resultType="boardVO" parameterType="searchCriteria">
+		SELECT   BNO
+				,TITLE
+				,CONTENT
+				,WRITER
+				,REGDATE
+				,HIT
+				,RNUM
+		FROM (
+			SELECT
+					BNO
+					,TITLE
+					,CONTENT
+					,WRITER
+					,REGDATE
+					,HIT
+					,ROW_NUMBER() OVER(ORDER BY BNO DESC) RNUM
+			FROM BURGER_BOARD
+		)
+		WHERE 1=1
+		<if test='searchType == "tc"'>
+		    AND (TITLE LIKE '%' || #{keyword} || '%') OR (CONTENT LIKE '%' || #{keyword} || '%')
+	    </if>
+		<if test='searchType == "t"'>
+		    AND (TITLE LIKE '%' || #{keyword} || '%')
+	    </if>
+		<if test='searchType == "c"'>
+		    AND (CONTENT LIKE '%' || #{keyword} || '%')
+	    </if>			
+		AND RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY BNO DESC
+	</select>
+	
+	
+	<select id="listCount" parameterType="searchCriteria" resultType="int">
+		SELECT COUNT(BNO)
+		  FROM BURGER_BOARD
+		  WHERE 1=1
+				<if test='searchType == "tc"'>
+				    AND (TITLE LIKE '%' || #{keyword} || '%') OR (CONTENT LIKE '%' || #{keyword} || '%')
+			    </if>
+				<if test='searchType == "t"'>
+				    AND (TITLE LIKE '%' || #{keyword} || '%')
+			    </if>
+				<if test='searchType == "c"'>
+				    AND (CONTENT LIKE '%' || #{keyword} || '%')
+			    </if>
+		  AND BNO > 0
+	</select>
+		
+	<!-- 게시물 조회 -->
+	<select id="read" parameterType="int" resultType="boardVO">
+		SELECT   BNO
+				,TITLE
+				,WRITER
+				,CONTENT
+				,REGDATE
+				,HIT
+			FROM BURGER_BOARD
+			WHERE BNO = #{bno}
+	</select>
+	
+	<update id="update" parameterType="boardVO">
+		UPDATE BURGER_BOARD
+			SET TITLE = #{title}
+				,CONTENT = #{content}
+			WHERE BNO = #{bno}
+	</update>
+	
+	<delete id="delete" parameterType="boardVO">
+		DELETE  FROM
+			BURGER_BOARD
+			WHERE BNO = #{bno}
+	</delete>
+	
+	<!-- 조회수 증가 -->
+	<update id="boardHit" parameterType="int">
+		UPDATE BURGER_BOARD
+			SET HIT = HIT+1
+			WHERE BNO = #{bno}
+	</update>
+</mapper>

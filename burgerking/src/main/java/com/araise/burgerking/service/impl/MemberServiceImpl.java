@@ -21,12 +21,6 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberVO login(MemberVO memberVO) throws Exception {
-		
-		return memberMapper.login(memberVO);
-	}
-
-	@Override
 	public MemberVO socialLogin(String userSocialId) throws Exception {
 
 		return memberMapper.socialLogin(userSocialId);
@@ -53,9 +47,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int pwdChk(MemberVO memberVO) throws Exception {
+	public MemberVO pwdChk(MemberVO memberVO) throws Exception {
 		
-		int result = memberMapper.pwdChk(memberVO);
+		MemberVO result = memberMapper.pwdChk(memberVO);
 		return result;
 	}
 

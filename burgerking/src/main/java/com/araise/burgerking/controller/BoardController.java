@@ -14,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.araise.burgerking.service.BoardService;
 import com.araise.burgerking.vo.BoardVO;
-import com.araise.burgerking.vo.PageMaker;
 import com.araise.burgerking.vo.SearchCriteria;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
@@ -33,7 +32,7 @@ public class BoardController {
 	public String writeView() throws Exception{
 		logger.info("writeView");
 		
-		return "/board/writeView";
+		return "board/writeView";
 	}
 	
 	// 게시판 글 작성

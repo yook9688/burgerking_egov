@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.araise.burgerking.mapper.OrderMapper">
+	<insert id="addOrder">
+		INSERT INTO BURGER_ORDER (ORDERID, 
+								  USERID,
+								  USERPHONE,
+								  USERADDRESS,
+								  USERDETAILADDRESS,
+								  USEREXTRAADDRESS,
+								  REQUESTS) 
+						VALUES (#{orderId},
+								#{userId},
+								#{userPhone},
+								#{userAddress},
+								#{userDetailAddress},
+								#{userExtraAddress},
+								#{requests}) 
+	</insert>
+	
+	<insert id="addOrderDetail">
+		INSERT INTO BURGER_ORDER_DETAILS
+			SELECT orderDetailsNumber_seq.nextval,
+			#{orderId},
+			PCODE,
+			PNAME,
+			DRINK1,
+			DRINK2,
+			SIDE1,
+			SIDE2,
+			POPTION,
+			PRICE FROM BURGER_CART
+	</insert>
+	
+	<select id="orderList" resultType="orderVO">
+		SELECT * FROM 
+			BURGER_ORDER 
+			WHERE USERID = #{userId}
+	</select>
+	
+	<select id="orderDetail" resultType="orderVO">
+		SELECT O.ORDERID, O.USERID, O.REQUESTS, OD.PCODE, OD.PNAME, OD.DRINK1, 
+			   OD.DRINK2, OD.SIDE1, OD.SIDE2, OD.P_OPTION, OD.PRICE, P.PURL
+			   FROM BURGER_ORDER O INNER JOIN BURGER_ORDER_DETAILS OD 
+			   ON O.ORDERID = OD.ORDERID
+			   INNER JOIN BURGER_PRODUCT P 
+			   ON OD.PCODE = P.PCODE
+               WHERE O.USERID = #{userId}
+			   AND O.ORDERID = #{orderId} 
+	</select>
+	
+	<!-- 주문 후 장바구니 초기화 -->
+	<delete id="cartClear">
+		DELETE BURGER_CART
+			WHERE USERID = #{userId}
+	</delete>
+</mapper>

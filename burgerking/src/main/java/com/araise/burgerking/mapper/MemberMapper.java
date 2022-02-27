@@ -26,7 +26,7 @@ public interface MemberMapper {
 	public void delete(MemberVO memberVO) throws Exception;
 	
 	// 패스워드 체크
-	public int pwdChk(MemberVO memberVO) throws Exception;
+	public MemberVO pwdChk(MemberVO memberVO) throws Exception;
 	
 	// 아이디 중복체크
 	public int idChk(MemberVO memberVO) throws Exception;

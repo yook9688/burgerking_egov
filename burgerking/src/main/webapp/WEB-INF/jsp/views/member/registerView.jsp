@@ -200,7 +200,7 @@
 <div id="content">
 	<div class="site_locate">
 		<div class="locate_box">
-			<a href="/">Home</a> <a href="../member/loginView.do">로그인</a> <span>회원가입</span>
+			<a href="${contextPath}">Home</a> <a href="../member/loginView.do">로그인</a> <span>회원가입</span>
 		</div>
 	</div>
 	<div class="con_wrap">

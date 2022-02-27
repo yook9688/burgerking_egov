@@ -25,7 +25,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">  
 	$(document).ready(function() {
-		var msg = "${param.msg}";
+		var message = "${msg}";
 		<%
 		MemberVO member = (MemberVO) session.getAttribute("member");
 		if(member != null) {
@@ -33,6 +33,8 @@
 			alert("이미 로그인 되어있습니다.");
 	   		window.history.back();
 		<% } %>
+		
+		console.log("${sessionScope.member}");
 		$(".login_btn").on("click", function() {
 			if($("#userId").val()=="" || $("#userId").val() == null ){
 				alert("아이디를 입력해주세요.");
@@ -61,8 +63,8 @@
 			}
 		});
 		
-		if(msg == "error") {
-			alert("로그인 실패!\n아이디와 비밀번호를 확인해주세요.");
+		if(message != "") {
+			alert(message);
 		}
 				
 	});
@@ -128,7 +130,7 @@ function kakaoLogin() {
 						<p>어서오세요! 버거킹입니다.</p>
 					</div>
 					<div class="login_form_box">
-						<form class="loginForm" method="post" action="${contextPath}/member/login.do">
+						<form class="loginForm" method="post" action="${contextPath}/loginCheck.do">
 							<div>
 								<label for="userId"></label>
 								<input type="text" id="userId" name="userId" placeholder="아이디">

@@ -1,8 +1,15 @@
 package com.araise.burgerking.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 //util.Date는 sql안에들어갈때 값이 안맞음 
-public class MemberVO {
+public class MemberVO implements UserDetails {
 	
 	private String userId;
 	private String userPwd;
@@ -82,11 +89,37 @@ public class MemberVO {
 	public void setUserSocialId(String socialId) {
 		this.userSocialId = socialId;
 	}
-	@Override
-	public String toString() {
-		return "ID : "+userId+"\nPwd : "+userPwd+"\nname : "+userName+"\nBirth : "+userBirth+"\nEmail : "+userEmail+"\nAddress : "+userAddress+"\nDetailAddress : "+userDetailAddress+"\nExtraAddress : "+userExtraAddress+"\nphone : "+userPhone+"\n userType : "+userType;
-	}
 	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> authority = new ArrayList<GrantedAuthority>();
+		authority.add(new SimpleGrantedAuthority("ROLE_USER"));
+		return authority;
+	}
+	@Override
+	public String getPassword() {
+		return userPwd;
+	}
+	@Override
+	public String getUsername() {
+		return userId;
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 	
 	
 	

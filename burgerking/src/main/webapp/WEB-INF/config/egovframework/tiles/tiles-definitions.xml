@@ -11,7 +11,7 @@
        <put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp"/>
     </definition>
     
-    <definition name="orderLayout" templateExpression="/WEB-INF/jsp/tiles/orderLayout">
+    <definition name="orderLayout" templateExpression="/WEB-INF/jsp/tiles/orderLayout.jsp">
         <put-attribute name="orderHeader" value="/WEB-INF/jsp/tiles/orderHeader.jsp" />
         <put-attribute name="sitemap" value="/WEB-INF/jsp/tiles/sitemap.jsp" />
         <put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp" />
@@ -20,8 +20,13 @@
    	<definition name="*" extends="mainLayout">
    	    <put-attribute name="body" value="/WEB-INF/jsp/views/{1}.jsp" />
    	</definition>
+   	
    	<definition name="*/*" extends="mainLayout">
    	    <put-attribute name="body" value="/WEB-INF/jsp/views/{1}/{2}.jsp"/>
+   	</definition>
+   	
+   	 <definition name="cart/*" extends="orderLayout">
+   	    <put-attribute name="body" value="/WEB-INF/jsp/views/cart/{1}.jsp" />
    	</definition>
    	
    	<definition name="order/*" extends="orderLayout">

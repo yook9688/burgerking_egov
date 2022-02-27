@@ -33,7 +33,7 @@
 									<a href="${contextPath}/member/updateView.do">회원정보수정</a>
 								</li>
 								<li>
-									<a href="${contextPath}/member/logout.do">로그아웃</a>
+									<a href="${contextPath}/logout.do">로그아웃</a>
 								</li>
 							</c:otherwise>
 						</c:choose>

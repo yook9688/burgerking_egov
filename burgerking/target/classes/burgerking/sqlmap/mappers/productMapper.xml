@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.araise.burgerking.mapper.ProductMapper">
+	<select id="productList" resultType="productVO">
+		SELECT * 
+			FROM BURGER_PRODUCT
+			WHERE PCATEGORY = #{pCategory}
+	</select>
+	<select id="productDetail" resultType="productVO">
+		SELECT *
+			FROM BURGER_PRODUCT
+			WHERE PCODE = #{pCode}
+	</select>
+</mapper>

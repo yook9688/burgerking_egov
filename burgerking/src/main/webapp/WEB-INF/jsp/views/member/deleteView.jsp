@@ -35,9 +35,9 @@
 				type : "POST",
 				dataType : "json",
 				data : $(".delete_form").serializeArray(),
-				success : function(data){
+				success : function(result){
 					
-					if(data == 0) {
+					if(result == "N") {
 						alert("비밀번호가 틀립니다.")
 						return;
 					} else {
